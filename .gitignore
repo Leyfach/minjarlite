@@ -1,0 +1,5 @@
+/.venv
+.env
+.env.local
+frontend/node_modules
+backend/heatmap.db
