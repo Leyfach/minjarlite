@@ -10,12 +10,10 @@ from database import Base, SessionLocal, engine
 from models import Click
 from schemas import ClickCreate, HeatmapResponse, PageStat
 
-# Create tables on startup (SQLite file defined in database.py)
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Heatmap Tracker API")
 
-# Allow local frontend access during development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

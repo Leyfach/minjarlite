@@ -34,7 +34,6 @@ const Dashboard: React.FC<DashboardProps> = ({ onLaunchDemo, onOpenAdmin }) => {
 
   return (
     <div className="min-h-screen bg-brand-offwhite text-brand-black font-sans">
-      {/* Header */}
       <header className="bg-white border-b border-brand-gray h-16 flex items-center px-8 justify-between sticky top-0 z-10">
         <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-brand-orange rounded-sm flex items-center justify-center">
@@ -50,7 +49,6 @@ const Dashboard: React.FC<DashboardProps> = ({ onLaunchDemo, onOpenAdmin }) => {
 
       <main className="max-w-5xl mx-auto p-8">
         
-        {/* Hero Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-white p-8 border border-brand-gray shadow-sm hover:shadow-md transition-shadow">
                 <h2 className="text-2xl font-bold mb-4">Generate Data</h2>
@@ -92,7 +90,6 @@ const Dashboard: React.FC<DashboardProps> = ({ onLaunchDemo, onOpenAdmin }) => {
             </div>
         </div>
 
-        {/* Stats Table */}
         <div className="bg-white border border-brand-gray">
             <div className="px-6 py-4 border-b border-brand-gray flex justify-between items-center">
                 <h3 className="font-bold text-lg">Tracked Pages</h3>

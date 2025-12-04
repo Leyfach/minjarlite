@@ -10,7 +10,7 @@ export interface ClickData {
 export interface HeatmapPoint {
   x: number;
   y: number;
-  value: number; // 0 to 1 intensity
+  value: number;
   viewport_w?: number;
   viewport_h?: number;
 }

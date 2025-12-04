@@ -14,27 +14,22 @@ const DemoPage: React.FC<DemoPageProps> = ({ onBack, showHeatmap }) => {
   const [heatmapData, setHeatmapData] = useState<HeatmapPoint[]>([]);
   const [windowSize, setWindowSize] = useState({ w: window.innerWidth, h: window.innerHeight });
 
-  // Simulate the tracked URL
   const CURRENT_URL = '/product/simulated-endpoint';
 
-  // Load heatmap data if toggle is on
   useEffect(() => {
     if (showHeatmap) {
       fetchHeatmap(CURRENT_URL).then(res => setHeatmapData(res.points));
     }
   }, [showHeatmap]);
 
-  // Handle resizing for the canvas
   useEffect(() => {
     const handleResize = () => setWindowSize({ w: window.innerWidth, h: window.innerHeight });
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Global Click Listener for Tracking (The "Script" Logic)
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      // Don't track clicks if we are just navigating back
       if ((e.target as HTMLElement).closest('#nav-controls')) return;
 
       const payload = {
@@ -45,10 +40,8 @@ const DemoPage: React.FC<DemoPageProps> = ({ onBack, showHeatmap }) => {
         url: CURRENT_URL
       };
 
-      // Fire and forget (Mock API)
       trackClick(payload);
       
-      // If we are viewing heatmap live, update points immediately for demo effect
       if (showHeatmap) {
         setHeatmapData(prev => [...prev, { x: e.pageX, y: e.pageY, value: 1 }]);
       }
@@ -60,7 +53,6 @@ const DemoPage: React.FC<DemoPageProps> = ({ onBack, showHeatmap }) => {
 
   return (
     <div className="relative min-h-screen bg-white">
-      {/* The Heatmap Overlay */}
       {showHeatmap && (
         <HeatmapLayer 
           points={heatmapData} 
@@ -69,7 +61,6 @@ const DemoPage: React.FC<DemoPageProps> = ({ onBack, showHeatmap }) => {
         />
       )}
 
-      {/* Navigation Controls (Untracked Area) */}
       <div id="nav-controls" className="fixed top-4 left-4 z-[100] flex gap-2">
         <button 
           onClick={onBack}

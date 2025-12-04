@@ -14,7 +14,6 @@ const ProductPage: React.FC = () => {
       </nav>
 
       <main className="max-w-6xl mx-auto p-10 mt-10 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Product Image Area */}
         <div className="bg-brand-offwhite aspect-square flex items-center justify-center p-8 border border-brand-gray relative group cursor-crosshair">
           <div className="absolute top-4 left-4 bg-brand-orange text-white text-xs font-bold px-2 py-1">NEW ARRIVAL</div>
           <img 
@@ -24,7 +23,6 @@ const ProductPage: React.FC = () => {
           />
         </div>
 
-        {/* Product Details Area */}
         <div className="flex flex-col justify-center space-y-6">
           <div>
             <h1 className="text-5xl font-extrabold tracking-tight mb-2">Product Example</h1>
